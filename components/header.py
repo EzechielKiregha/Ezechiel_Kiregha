@@ -7,7 +7,7 @@ def show_header() -> None:
     st.sidebar.markdown("**Python Developer | Backend Specialist**")
     st.sidebar.markdown("---")
     # custom nav:
-    st.sidebar.page_link("Ezechiel_Kiregha.py", label="Home")
+    st.sidebar.page_link("streamlit_app.py", label="Home")
     st.sidebar.page_link("pages/1_About.py",     label="About")
     st.sidebar.page_link("pages/2_Projects.py",  label="Projects")
     st.sidebar.page_link("pages/3_Elements.py",  label="Elements")
