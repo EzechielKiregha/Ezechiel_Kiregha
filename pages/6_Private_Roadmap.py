@@ -1,6 +1,5 @@
 import streamlit as st
 from components.header import show_header
-from utils.data import roadmap
 from utils.config import PRIVATE_KEY
 
 show_header()
