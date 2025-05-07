@@ -1,10 +1,11 @@
 import streamlit as st
 
-def show_secret(on_unlocked, correct_key: str) -> None:
-    """Render the passkey input and handle unlocking logic."""
-    passkey = st.text_input("Enter Passkey", type="password")
-    if st.button("Unlock"):
-        if passkey == correct_key:
+def show_secret(on_unlocked, correct_key: str):
+    """Renders a password box, and if correct sets session_state['unlocked']=True and calls on_unlocked()."""
+    entered = st.text_input("Enter passkey", type="password")
+    if entered:
+        if entered == correct_key:
+            st.session_state["unlocked"] = True
             on_unlocked()
         else:
-            st.error("❌ Incorrect passkey. Please try again.")
+            st.error("❌ Wrong passkey.")

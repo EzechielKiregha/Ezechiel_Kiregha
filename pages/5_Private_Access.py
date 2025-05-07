@@ -1,6 +1,5 @@
 import streamlit as st
 from components.header import show_header
-from components.secret_section import show_secret
 from utils.config import PRIVATE_KEY
 
 show_header()
@@ -11,11 +10,13 @@ st.write(
     "the private roadmap and journal."
 )
 
-def on_unlocked() -> None:
-    """Callback function to execute when the correct passkey is entered."""
-    st.success("🔓 Access granted!")
-    st.write("You can now navigate (via the sidebar) to:")
-    st.markdown("- **Private Roadmap** (Page 6)\n- **Private Journal** (Page 7)")
-
-# Render the passkey input and unlock logic
-show_secret(on_unlocked, correct_key=PRIVATE_KEY)
+if not st.session_state.get("unlocked"):
+    entered = st.text_input("Enter passkey", type="password")
+    if entered == PRIVATE_KEY:
+        st.session_state["unlocked"] = True
+        st.success("🔓 Unlocked! Now navigate to Private Roadmap or Journal.")
+        st.rerun() 
+    elif entered:
+        st.error("❌ Wrong passkey.")
+else:
+    st.success("🔓 Already unlocked! Use the sidebar to go to Private Roadmap or Journal.")

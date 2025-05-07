@@ -14,6 +14,7 @@ def show_header() -> None:
     st.sidebar.page_link("pages/4_Roadmap.py",     label="Roadmap")
     st.sidebar.markdown("---")
     st.sidebar.page_link("pages/5_Private_Access.py",  label="Private Access")
-    st.sidebar.page_link("pages/6_Private_Roadmap.py",  label="Private Roadmap")
-    st.sidebar.page_link("pages/7_Private_Journal.py",  label="Private Journal")
+    if st.session_state.get("unlocked"):
+        st.sidebar.page_link("pages/6_Private_Roadmap.py", label="Private Roadmap")
+        st.sidebar.page_link("pages/7_Private_Journal.py", label="Private Journal")
 

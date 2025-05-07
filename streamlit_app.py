@@ -16,4 +16,17 @@ load_css()
 
 # 3. Welcome
 st.title("🌟 Welcome to Ezechiel Kiregha’s Portfolio")
+st.image("assets/portfolio.jpeg", use_container_width=True, caption="Ezechiel Kiregha")
+st.markdown(
+    """
+    Welcome to my portfolio! I am a Python Developer and Backend Specialist with a passion for building efficient and scalable applications. 
+    My journey has been filled with exciting projects, challenges, and continuous learning.
+    """
+)
+st.markdown(
+    """
+    This portfolio showcases my journey as a Python Developer and Backend Specialist. 
+    It includes my projects, elements of my work, and a roadmap for the future.
+    """
+)
 st.markdown("Use the menu on the left to explore About, Projects, Elements, Roadmap, or—if you have the passkey—Private sections.")
